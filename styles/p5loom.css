@@ -1,0 +1,12 @@
+/* Default styling for p5loom pictures and their controls. Optional: the library draws without it. Override any rule. */
+.p5loom { margin: 0; }
+.p5loom-canvas canvas { max-width: 100%; height: auto !important; }
+.p5loom-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin: 0 0 12px;
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.p5loom-control { display: flex; align-items: center; gap: 8px; }
+.p5loom-control output { min-width: 3ch; font-variant-numeric: tabular-nums; }
+.p5loom-sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}

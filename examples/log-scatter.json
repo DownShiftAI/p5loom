@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "seed": 1,
+  "theme": "light",
+  "canvas": { "width": 640, "height": 400 },
+  "data": {
+    "pages": [
+      { "visits": 12, "minutes": 0.8 },
+      { "visits": 40, "minutes": 1.6 },
+      { "visits": 150, "minutes": 3.1 },
+      { "visits": 420, "minutes": 5.9 },
+      { "visits": 1300, "minutes": 9.4 },
+      { "visits": 4800, "minutes": 16.2 },
+      { "visits": 16000, "minutes": 27.0 }
+    ]
+  },
+  "elements": [
+    { "type": "axes", "table": "pages", "x": "visits", "y": "minutes", "xScale": "log", "yScale": "linear", "zero": false },
+    { "type": "points", "table": "pages", "x": "visits", "y": "minutes", "xScale": "log", "yScale": "linear", "zero": false, "fill": "accent", "r": 5 },
+    { "type": "path", "table": "pages", "x": "visits", "y": "minutes", "xScale": "log", "yScale": "linear", "zero": false, "stroke": "muted", "weight": 1.5 },
+    { "type": "legend", "x": 0.7, "y": 0.1, "items": [{ "label": "Page", "fill": "accent" }] }
+  ]
+}

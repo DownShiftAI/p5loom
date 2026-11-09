@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "seed": 1,
+  "theme": "light",
+  "canvas": { "width": 480, "height": 320 },
+  "elements": [
+    { "type": "circle", "x": 0.5, "y": 0.5, "r": 0.3, "fill": "accent" }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "name": "p5loom",
+  "version": "0.1.0",
+  "description": "Spec-first, themed, accessible p5.js visualisations: controls, charts, SVG output, code mode, React and Vue wrappers, and an MCP server.",
+  "keywords": [
+    "p5",
+    "p5.js",
+    "visualization",
+    "chart",
+    "generative",
+    "accessibility",
+    "json-spec",
+    "mcp",
+    "model-context-protocol",
+    "svg"
+  ],
+  "homepage": "https://p5loom.dawnshift.co",
+  "license": "MIT",
+  "author": "Dawnshift",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "./types/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./spec": "./src/spec.js",
+    "./plan": "./src/plan.js",
+    "./theme": "./src/theme.js",
+    "./rng": "./src/rng.js",
+    "./policy": "./src/policy.js",
+    "./controls": "./src/controls.js",
+    "./svg": "./src/svg.js",
+    "./mcp": "./src/mcp/server.js",
+    "./styles.css": "./styles/p5loom.css",
+    "./chart": "./src/chart.js",
+    "./share": "./src/share.js",
+    "./sketch": "./src/sketch.js",
+    "./element": "./src/element.js",
+    "./react": "./src/react.js",
+    "./vue": "./src/vue.js",
+    "./schema.json": "./schema/p5loom-spec-1.schema.json",
+    "./package.json": "./package.json",
+    "./examples/*": "./examples/*"
+  },
+  "bin": {
+    "p5loom-mcp": "./bin/p5loom-mcp.mjs"
+  },
+  "files": [
+    "src",
+    "bin",
+    "styles",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "schema",
+    "types",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "docs": "node scripts/build-docs.mjs",
+    "test:docs": "node scripts/build-docs.mjs --check",
+    "serve": "node scripts/serve-docs.mjs",
+    "e2e:docs": "node scripts/e2e-docs.mjs",
+    "check": "npm test && npm run test:docs",
+    "mcp": "node bin/p5loom-mcp.mjs",
+    "mcp:http": "node bin/p5loom-mcp.mjs --http",
+    "visual": "node scripts/visual-regression.mjs",
+    "visual:update": "node scripts/visual-regression.mjs --update",
+    "schema:check": "node --test test/schema-wrappers.test.mjs",
+    "prepublishOnly": "npm test && npm run test:docs",
+    "pack:check": "node scripts/verify-package.mjs"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "pixelmatch": "^8.0.0",
+    "pngjs": "^7.0.0",
+    "puppeteer-core": "^24.0.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "vue": "^3.5.45"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DownShiftAI/p5loom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DownShiftAI/p5loom/issues"
+  }
+}

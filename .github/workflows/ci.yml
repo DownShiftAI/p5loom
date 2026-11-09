@@ -1,0 +1,52 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - name: unit tests (library, controls, charts, schema, wrappers, MCP)
+        run: npm test
+      - name: site build and link, CSP and example checks
+        run: npm run test:docs
+      - name: the packed tarball installs and works from an empty project
+        run: npm run pack:check
+
+  browser:
+    runs-on: ubuntu-latest
+    needs: unit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+      - name: build the site
+        run: npm run docs
+      - name: browser tests under the production policy
+        env:
+          CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
+        run: npm run e2e:docs
+      # Visual baselines are recorded on Windows (see test/visual). They are run locally until a baseline is kept per
+      # platform, because font rendering differs between operating systems.

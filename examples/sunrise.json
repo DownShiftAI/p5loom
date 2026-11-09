@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "seed": 7,
+  "theme": "dark",
+  "canvas": { "width": 960, "height": 560 },
+  "elements": [
+    { "type": "random-dots", "count": 220, "fill": "muted", "radius": [0.6, 1.8] },
+    { "type": "circle", "x": 0.5, "y": 0.8, "r": 0.2, "fill": "accent" },
+    { "type": "rect", "x": 0, "y": 0.84, "w": 1, "h": 0.16, "fill": "bg" },
+    { "type": "line", "points": [[0, 0.84], [1, 0.84]], "stroke": "accent", "weight": 1.5 }
+  ]
+}

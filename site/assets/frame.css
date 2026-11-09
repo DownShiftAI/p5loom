@@ -1,0 +1,4 @@
+/* Styling for a sketch's frame page (dist/sketches/<name>/). Dark is the default, as on the site. */
+html, body { margin: 0; background: #000000; color: #f0ebe0; }
+body[data-theme="light"] { background: #f6f4ee; color: #1a1a1a; }
+canvas { display: block; max-width: 100%; }

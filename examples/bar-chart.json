@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "seed": 1,
+  "theme": "light",
+  "canvas": { "width": 640, "height": 400 },
+  "data": {
+    "sales": [
+      { "month": "Jan", "revenue": 120 },
+      { "month": "Feb", "revenue": 180 },
+      { "month": "Mar", "revenue": 150 },
+      { "month": "Apr", "revenue": 260 },
+      { "month": "May", "revenue": 230 },
+      { "month": "Jun", "revenue": 310 }
+    ]
+  },
+  "elements": [
+    { "type": "axes", "table": "sales", "x": "month", "y": "revenue" },
+    { "type": "bars", "table": "sales", "x": "month", "y": "revenue", "fill": "accent" },
+    { "type": "text", "x": 0.12, "y": 0.04, "text": "Revenue by month", "size": 16, "fill": "fg" }
+  ]
+}

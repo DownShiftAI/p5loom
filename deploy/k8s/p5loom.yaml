@@ -1,0 +1,110 @@
+# p5loom docs site on the Jarvis k3s cluster. Same pattern as the sibling docs apps in dawnshift-frontend:
+# Traefik ingress over plain HTTP, TLS terminated by Cloudflare in front of the box.
+# Apply:  kubectl apply -f deploy/k8s/p5loom.yaml
+# The image is pushed to the cluster registry first (see deploy/README.md).
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p5loom
+  namespace: dawnshift-frontend
+  labels:
+    app: p5loom
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: p5loom
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        app: p5loom
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 101
+        runAsGroup: 101
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: p5loom
+          image: 10.43.23.199:5000/dawnshift/p5loom-site:0.1.4
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          resources:
+            requests:
+              cpu: 20m
+              memory: 32Mi
+            limits:
+              cpu: 200m
+              memory: 96Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: nginx-run
+              mountPath: /tmp
+            - name: nginx-cache
+              mountPath: /var/cache/nginx
+      volumes:
+        - name: nginx-run
+          emptyDir: {}
+        - name: nginx-cache
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: p5loom
+  namespace: dawnshift-frontend
+  labels:
+    app: p5loom
+spec:
+  selector:
+    app: p5loom
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: p5loom
+  namespace: dawnshift-frontend
+  labels:
+    app: p5loom
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: p5loom.dawnshift.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: p5loom
+                port:
+                  name: http

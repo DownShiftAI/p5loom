@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "seed": 1,
+  "theme": "light",
+  "canvas": { "width": 640, "height": 400 },
+  "elements": [
+    { "type": "line", "points": [[0.05, 0.25], [0.95, 0.25]], "stroke": "grid", "weight": 1 },
+    { "type": "line", "points": [[0.05, 0.5], [0.95, 0.5]], "stroke": "grid", "weight": 1 },
+    { "type": "line", "points": [[0.05, 0.75], [0.95, 0.75]], "stroke": "grid", "weight": 1 },
+    {
+      "type": "line",
+      "points": [[0.05, 0.7], [0.25, 0.55], [0.45, 0.62], [0.65, 0.35], [0.95, 0.2]],
+      "stroke": "accent",
+      "weight": 3
+    }
+  ]
+}

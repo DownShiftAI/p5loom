@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "seed": { "control": "seed" },
+  "theme": { "control": "theme" },
+  "canvas": { "width": 960, "height": 560 },
+  "controls": [
+    { "id": "seed", "type": "slider", "label": "Seed", "min": 1, "max": 999, "step": 1, "value": 7 },
+    { "id": "dots", "type": "slider", "label": "Stars", "min": 10, "max": 600, "step": 10, "value": 220 },
+    { "id": "radius", "type": "slider", "label": "Sun size", "min": 0.05, "max": 0.4, "step": 0.01, "value": 0.2 },
+    { "id": "tint", "type": "select", "label": "Star colour", "options": ["accent", "muted", "fg"], "value": "muted" },
+    { "id": "horizon", "type": "toggle", "label": "Show the horizon", "value": true },
+    { "id": "theme", "type": "select", "label": "Theme", "options": ["light", "dark"], "value": "dark" }
+  ],
+  "elements": [
+    { "type": "random-dots", "count": { "control": "dots" }, "fill": { "control": "tint" }, "radius": [0.6, 1.8] },
+    { "type": "circle", "x": 0.5, "y": 0.8, "r": { "control": "radius" }, "fill": "accent" },
+    { "type": "rect", "x": 0, "y": 0.84, "w": 1, "h": 0.16, "fill": "bg" },
+    { "type": "line", "points": [[0, 0.84], [1, 0.84]], "stroke": "accent", "weight": 1.5, "when": "horizon" }
+  ]
+}

@@ -1,0 +1,105 @@
+[
+  {
+    "id": "sunrise",
+    "title": "Sunrise",
+    "summary": "Random dots for stars, a sun on the horizon, and a ground that hides what sits under it. The picture at the top of this site.",
+    "teaches": [
+      "draw order",
+      "random-dots",
+      "a theme that follows the page"
+    ]
+  },
+  {
+    "id": "hello-circle",
+    "title": "One circle",
+    "summary": "The smallest useful spec: one accent circle on the light theme.",
+    "teaches": [
+      "circle",
+      "theme tokens",
+      "normalised coordinates"
+    ]
+  },
+  {
+    "id": "scatter-trend",
+    "title": "Scatter with a trend line",
+    "summary": "Twelve points and a guide line. Shows the scatter element and a line in muted ink.",
+    "teaches": [
+      "scatter",
+      "line",
+      "radius in pixels"
+    ]
+  },
+  {
+    "id": "random-field",
+    "title": "Seeded random field",
+    "summary": "900 dots placed by a seed. Change the seed and the dots move; the frame does not.",
+    "teaches": [
+      "random-dots",
+      "seed",
+      "reproducibility"
+    ]
+  },
+  {
+    "id": "bars",
+    "title": "Bar chart",
+    "summary": "Six bars on a baseline, drawn as rectangles from a top-left corner and a size.",
+    "teaches": [
+      "rect",
+      "stacking shapes by hand"
+    ]
+  },
+  {
+    "id": "dark-poster",
+    "title": "Dark poster",
+    "summary": "The same vocabulary on the dark theme. Only the colour tokens change, not the layout.",
+    "teaches": [
+      "dark theme",
+      "bg token",
+      "tall canvas"
+    ]
+  },
+  {
+    "id": "grid-lines",
+    "title": "Line chart over a grid",
+    "summary": "Three guide lines in the grid token and one accent series on top.",
+    "teaches": [
+      "grid token",
+      "multi-point line",
+      "stroke weight"
+    ]
+  },
+  {
+    "id": "controls-demo",
+    "title": "Controls",
+    "summary": "A sunrise with sliders, a select and a toggle. The seed, the theme, the star count and the sun size all follow controls.",
+    "teaches": [
+      "controls",
+      "bindings",
+      "when",
+      "seed and theme from a control"
+    ]
+  },
+  {
+    "id": "bar-chart",
+    "title": "Bar chart from data",
+    "summary": "Six months of revenue in a data table. The axes, the scales and the ticks come from the numbers, not hand-placed coordinates.",
+    "teaches": [
+      "data tables",
+      "bars",
+      "axes with a zero baseline",
+      "band scale"
+    ]
+  },
+  {
+    "id": "log-scatter",
+    "title": "Log scale with a legend",
+    "summary": "Visits against time on a log x axis, with points, a path and a legend. Shows the log scale and the zero-free linear axis.",
+    "teaches": [
+      "log scale",
+      "points",
+      "path",
+      "legend",
+      "zero false"
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "seed": 2024,
+  "theme": "light",
+  "canvas": { "width": 640, "height": 400 },
+  "elements": [
+    { "type": "rect", "x": 0, "y": 0, "w": 1, "h": 1, "stroke": "grid", "weight": 1 },
+    { "type": "random-dots", "count": 900, "fill": "accent", "radius": [1, 4] }
+  ]
+}
